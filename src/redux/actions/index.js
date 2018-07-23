@@ -16,20 +16,19 @@ export function weatherFetchComplete(data) {
 }
 
 export function fetchWeather(city) {
-  return function(dispatch) {
+  return function action(dispatch) {
     //async action entry point
-    // dispatch(weatherFetchInitiate());
+    dispatch(weatherFetchInitiate());
 
     const url = `${ConfigMain.getWeatherApiUrl()}&q=${city},in`;
-    const request = Axios.get(url);
-    dispatch(weatherFetchComplete(request));
-    
-      // .then(function(response) {
-        // dispatch(weatherFetchComplete(response));
-      // })
-      // .catch(function(error) {
-        // dispatch(weatherFetchComplete());
-      //   weatherFetchComplete();
-      // });
+    // const request = Axios.get(url);
+    // dispatch(weatherFetchComplete(request));
+    return Axios.get(url)
+      .then(function(response) {
+        dispatch(weatherFetchComplete(response));
+      })
+      .catch(function(error) {
+        dispatch(weatherFetchComplete(error));
+      });
   };
 }

@@ -22,7 +22,7 @@ class WeatherList extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.weather.map(this.renderCity)}
+          {/* {this.props.weather.map(this.renderCity)} */}
         </tbody>
       </table>
     );
@@ -31,7 +31,7 @@ class WeatherList extends Component {
 
 const mapStateToProps = state => ({
   // isFetching: state.weather.isFetching,
-  weather: state.weather
+  // weather: state.weather
 });
 
 export default connect(mapStateToProps)(WeatherList);
