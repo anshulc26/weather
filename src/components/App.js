@@ -5,9 +5,13 @@ import WeatherList from '../containers/WeatherList';
 class App extends Component {
   render() {
     return (
-      <div>
-        <SearchBar />
-        <WeatherList />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-sm-12">
+            <SearchBar />
+            <WeatherList />
+          </div>
+        </div>
       </div>
     );
   }
