@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 class WeatherList extends Component {
   renderCity(cityData) {
+    console.log(cityData);
     return (
       <tr>
         <td>{cityData.city.name}</td>
@@ -22,7 +23,7 @@ class WeatherList extends Component {
           </tr>
         </thead>
         <tbody>
-          {/* {this.props.weather.map(this.renderCity)} */}
+          {this.props.cities.map(this.renderCity)}
         </tbody>
       </table>
     );
@@ -30,8 +31,8 @@ class WeatherList extends Component {
 }
 
 const mapStateToProps = state => ({
-  // isFetching: state.weather.isFetching,
-  // weather: state.weather
+  isFetching: state.weather.isFetching,
+  cities: state.weather.cities
 });
 
 export default connect(mapStateToProps)(WeatherList);

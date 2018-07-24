@@ -23,8 +23,6 @@ var ConfigMain = {
 
   // ChallengesScannerDisabled: false,
 
-  // S3BucketURL: 'https://sociamibucket.s3.amazonaws.com',
-
   getWeatherApiUrl: function() {
     return WEATHER_API_URL;
   },

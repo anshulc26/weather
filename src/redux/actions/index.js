@@ -21,11 +21,9 @@ export function fetchWeather(city) {
     dispatch(weatherFetchInitiate());
 
     const url = `${ConfigMain.getWeatherApiUrl()}&q=${city},in`;
-    // const request = Axios.get(url);
-    // dispatch(weatherFetchComplete(request));
     return Axios.get(url)
       .then(function(response) {
-        dispatch(weatherFetchComplete(response));
+        dispatch(weatherFetchComplete(response.data));
       })
       .catch(function(error) {
         dispatch(weatherFetchComplete(error));
