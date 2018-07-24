@@ -7,7 +7,8 @@ export default function(state = cityWeatherInitialState, action) {
     case FETCH_WEATHER_INITIATE:
       return { ...state, isFetching: true };
     case FETCH_WEATHER_COMPLETE:
-      return { ...state, cities: [ action.data, ...state.cities ], isFetching: false };
+      const cities = (action.data.cod === "200" ? [ action.data, ...state.cities ] : [...state.cities]);
+      return { ...state, cities: cities, isFetching: false };
     default:
       return state;
   }
